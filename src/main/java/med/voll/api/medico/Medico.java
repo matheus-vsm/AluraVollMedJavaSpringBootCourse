@@ -24,5 +24,13 @@ public class Medico {
     private Especialidade especialidade;
     @Embedded // é usado para incluir um objeto dentro de uma entidade, sem criar uma tabela separada no banco
     // | a tabela Medicos conterá os atributos do endereço
-    private Endereco enderec;
+    private Endereco endereco;
+
+    public Medico(DadosCadastroMedico dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.crm = dados.crm();
+        this.endereco = new Endereco(dados.endereco());
+        this.especialidade = dados.especialidade();
+    }
 }
