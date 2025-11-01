@@ -14,6 +14,8 @@ public record DadosCadastroMedico(
         @Email // veficica se está no formato de email
         String email,
         @NotBlank
+        String telefone,
+        @NotBlank
         @Pattern(regexp = "\\d{4,6}") // expressão regular: campo representa um digito
                                       // numerico 0-9 e tem no min 4 e max 6 carac
         String crm,
