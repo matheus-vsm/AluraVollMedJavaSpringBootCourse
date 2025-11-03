@@ -16,7 +16,7 @@ import med.voll.api.endereco.Endereco;
 // para a classe, usando somente o atributo "id" para comparação entre objetos.
 public class Medico {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;;
+    private Long id;
     private String nome;
     private String email;
     private String telefone;
@@ -32,7 +32,7 @@ public class Medico {
         this.email = dados.email();
         this.telefone = dados.telefone();
         this.crm = dados.crm();
-        this.endereco = new Endereco(dados.endereco());
         this.especialidade = dados.especialidade();
+        this.endereco = new Endereco(dados.endereco());
     }
 }
