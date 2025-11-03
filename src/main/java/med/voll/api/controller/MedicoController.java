@@ -35,4 +35,10 @@ public class MedicoController {
         // chama o construtor de Dados, convertendo
         return repository.findAll(paginacao).map(DadosListagemMedico::new);
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosCadastroMedico dados) {
+
+    }
 }
