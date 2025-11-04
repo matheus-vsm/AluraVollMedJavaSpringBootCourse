@@ -40,4 +40,10 @@ public class MedicoController {
         medico.atualizarInformacoes(dados);
         // jpa rodando em uma transactional já identifica as mudancas e altera automaticamente no banco
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
