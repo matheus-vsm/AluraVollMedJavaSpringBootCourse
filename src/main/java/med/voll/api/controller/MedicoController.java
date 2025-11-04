@@ -30,7 +30,7 @@ public class MedicoController {
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         // buscar todos os dados de medico transforma cada elemento do stream | para cada Medico,
         // chama o construtor de Dados, convertendo
-        return repository.findAll(paginacao).map(DadosListagemMedico::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
     }
 
     @PutMapping
@@ -41,9 +41,17 @@ public class MedicoController {
         // jpa rodando em uma transactional já identifica as mudancas e altera automaticamente no banco
     }
 
+    // deleta o dado do banco
+//    @DeleteMapping("/{id}")
+//    @Transactional
+//    public void excluir(@PathVariable Long id) {
+//        repository.deleteById(id);
+//    }
+
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-        repository.deleteById(id);
+        var medico = repository.getReferenceById(id);
+        medico.excluir();
     }
 }
