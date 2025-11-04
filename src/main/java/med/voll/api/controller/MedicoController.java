@@ -42,11 +42,11 @@ public class MedicoController {
     }
 
     // deleta o dado do banco
-//    @DeleteMapping("/{id}")
-//    @Transactional
-//    public void excluir(@PathVariable Long id) {
-//        repository.deleteById(id);
-//    }
+    @DeleteMapping("/deletar/{id}")
+    @Transactional
+    public void deletar(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 
     @DeleteMapping("/{id}")
     @Transactional
