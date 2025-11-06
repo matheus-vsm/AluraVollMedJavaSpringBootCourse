@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -22,9 +23,16 @@ public class MedicoController {
     @Transactional // é uma anotação do Spring utilizada para controlar transações no banco de dados.
     //Ela garante que um conjunto de operações (inserir, atualizar, deletar, etc.)
     // seja executado como uma única transação, ou seja: Ou tudo acontece com sucesso, ou nada acontece.
-    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados) {
-        repository.save(new Medico(dados));
+    // Classe Spring que encapsula o endereço da API (http://localhost:8080/medicos...)
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
+        var medico = new Medico(dados);
+        repository.save(medico);
+        // já cria o http://localhost:8080 e toUri cria o Objeto URI
+        var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(ResponseEntity.ok(new DadosDetalhamentoMedico(medico)));
     } // 201: Requisição Processada e Novo Recurso Criado
+    // Devolve os Dados do Novo Registro e um Cabeçalho do Protocolo HTTP (Location)
 
     @GetMapping
     // caso não seja passado na URL, por padrão, o tamanho das respostas é 10 e ordenado pelo nome
