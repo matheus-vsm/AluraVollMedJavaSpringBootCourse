@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice // especifica que é uma classe de tratamento de erros
-public class TratadorDeErros {
+public class TratadorDeErros { // essa classe é chamada automaticamente pelo spring quando ocorre exception na aplicacao
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity tratarErro404() {
