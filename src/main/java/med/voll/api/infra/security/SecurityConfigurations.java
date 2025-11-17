@@ -1,6 +1,5 @@
 package med.voll.api.infra.security;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,9 +16,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfigurations {
     @Bean // devolve um objeto para o Spring
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(csrf -> csrf.disable()) // desabilita a proteção contra ataques do tipo Cross-Site Request Forgery
-                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        return http.csrf(csrf -> csrf.disable()) // desabilita a proteção contra ataques do tipo Cross-Site Request Forgery
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // configura a aplicação como STATELESS, não guarda estado. padrão API REST
+                .authorizeHttpRequests(req -> {
+                    req.requestMatchers("/login").permitAll(); // toda requisição POST /login que chegar será liberada
+                    req.anyRequest().authenticated(); // qualquer outra requisição precisará ser autenticada
+                })
                 .build();
     }
 
