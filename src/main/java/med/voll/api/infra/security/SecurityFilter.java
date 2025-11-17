@@ -45,6 +45,6 @@ public class SecurityFilter extends OncePerRequestFilter { // classe para fazer 
         if (authorizationHeader == null) {
             return null;
         }
-        return authorizationHeader.replace("Bearer", ""); // tira o prefixo Bearer
+        return authorizationHeader.replace("Bearer ", ""); // tira o prefixo Bearer
     }
 }
