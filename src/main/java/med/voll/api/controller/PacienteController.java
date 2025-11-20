@@ -34,4 +34,13 @@ public class PacienteController {
 
         return ResponseEntity.ok(page);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity buscar(@PathVariable Long id) { return null; }
+
+    @PutMapping("/{id}")
+    public ResponseEntity atualizar(@PathVariable Long id) { return null; }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletar(@PathVariable Long id) { return null; }
 }
