@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Table(name = "consultas")
 @Entity(name = "Consulta")
@@ -29,5 +29,5 @@ public class Consulta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    private LocalDate data;
+    private LocalDateTime data;
 }
