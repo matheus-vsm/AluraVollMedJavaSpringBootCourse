@@ -25,6 +25,7 @@ public class SecurityConfigurations {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // configura a aplicação como STATELESS, não guarda estado. padrão API REST
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers("/login").permitAll(); // toda requisição POST /login que chegar será liberada
+                    req.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
                     req.anyRequest().authenticated(); // qualquer outra requisição precisará ser autenticada
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class) // define que o meu filtro vai ser chamado primeiro
