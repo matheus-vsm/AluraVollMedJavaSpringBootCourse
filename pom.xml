@@ -107,6 +107,7 @@
             <version>2.8.14</version>
         </dependency>
 
+        <!-- Testes/JUnit/Mockito/Hamcrest/AssertJ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
