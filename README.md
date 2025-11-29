@@ -3,4 +3,6 @@
 
 O projeto do curso "Spring Boot 3: Desenvolva uma API Rest em Java" se encontra [Aqui](https://github.com/matheus-vsm/AluraVollMedJavaSpringBootCourse/tree/Spring-Boot-3-Desenvolva-uma-API-Rest-em-Java);
 
-O projeto do curso "Spring Boot 3: Aplique Boas Práticas e Projeta uma API Rest" se encontra [Aqui](https://github.com/matheus-vsm/AluraVollMedJavaSpringBootCourse/tree/main);
+O projeto do curso "Spring Boot 3: Aplique Boas Práticas e Projeta uma API Rest" se encontra [Aqui](https://github.com/matheus-vsm/AluraVollMedJavaSpringBootCourse/tree/Spring-Boot-3-Aplique-Boas-Pr%C3%A1ticas-e-Projeta-uma-API-Rest);
+
+O projeto do curso "Spring Boot 3: Documente, Teste e Prepare uma API para o Deploy" se encontra [Aqui](https://github.com/matheus-vsm/AluraVollMedJavaSpringBootCourse/tree/Spring-Boot-3-Documente%2C-Teste-e-Prepare-uma-API-para-o-Deploy);
